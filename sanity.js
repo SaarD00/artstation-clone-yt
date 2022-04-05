@@ -16,7 +16,7 @@ export const config = {
    **/
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  apiVersion: '2021-10-21', // Learn more: https://www.sanity.io/docs/api-versioning
+  apiVersion: '2021-08-11', // or today's date for latest
   /**
    * Set useCdn to `false` if your application require the freshest possible
    * data always (potentially slightly slower and a bit more expensive).
@@ -27,6 +27,11 @@ export const config = {
 
 export const sanityClient = createClient(config)
 
+/**
+ * Set up a helper function for generating Image URLs with only the asset reference data in your documents.
+ * Read more: https://www.sanity.io/docs/image-url
+ **/
 export const urlFor = (source) => imageUrlBuilder(config).image(source)
 
+// Helper function for using the current logged in user account
 export const useCurrentUser = createCurrentUserHook(config)

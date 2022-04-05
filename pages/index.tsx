@@ -3,60 +3,66 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import Header from '../components/Header'
-import { sanityClient, urlFor } from "../sanity"
-import { Post } from "../typings"
+import { sanityClient, urlFor } from '../sanity'
+import { Post } from '../typings'
 import imageUrlBuilder from '@sanity/image-url'
+import SubHeader from '../components/SubHeader'
+import Channels from '../components/Channels'
 interface Props {
-  posts: [Post];
+  posts: [Post]
 }
 
-
-export default function Home({posts}: Props) {
+export default function Home({ posts }: Props) {
   const imageUrlbuilder = imageUrlBuilder(sanityClient)
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className=" overflow-hidden bg-[#171717]">
       <Head>
-        <title>Medium Clone with sanity</title>
+        <title>Artstation Clone</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
 
+      <div className="my-[74px] items-center">
+        <SubHeader />
+      </div>
 
-      <div className='flex justify-between items-center bg-yellow-400 border-y border-black py-10 lg:py-0'>
-        <div className='px-10 space-y-5'>
-          <h1 className='text-6xl max-w-xl font-serif gap-2'>
-            <span className='underline decoration-black decoration-4'>
-            Medium  
-            </span>{" "}
-              is a place to write, read and connect
-            </h1>
-          <h2>It's easy and free to post your thinking on any topic you can think of.</h2>
-        </div>
-        <img className='hidden md:inline-flex h-32 lg:h-full' src="https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png"/>      
-        </div>
-
-        {/* posts */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:p-6">
+      {/* posts */}
+      <div className="-my-16 grid grid-cols-1 gap-3 overflow-hidden bg-[#171717] p-2 sm:grid-cols-2 md:gap-6 md:p-6 lg:grid-cols-5">
         {posts.map((post) => {
           return (
             <Link key={post._id} href={`/post/${post.slug.current}`}>
-              <div className="group cursor-pointer border rounded-lg overflow-hidden">
-              <img className='h-60 group-hover:scale-105 transition-transform duration-200 ease-in-out w-full object-cover' src={urlFor(post.mainImage).width(200).url()} />
-              <div className='flex justify-between p-5 bg-white'>
-              <div >
-                <p className='text-lg font-bold'>{post.title}</p>
-                <p className='text-xs'>{post.description} by {post.author.name}</p>
-              </div>
-              <img className='h-12 w-12 rounded-full' src={urlFor(post.author.image).url()}  />
-              </div>
-                
+              <div className="group cursor-pointer overflow-hidden rounded-lg border border-gray-900">
+                <div className=" absolute my-[160px] flex justify-between p-5 text-white">
+                  <div>
+                    <p className="text-lg font-light">{post.title}</p>
+                    <p className="text-xs font-extralight text-gray-400">
+                      {post.description} by{' '}
+                      <span className="font-semibold text-gray-200">
+                        {post.author.name}
+                      </span>
+                    </p>
+                  </div>
+                  <img
+                    className="h-12 w-12 rounded-full object-contain"
+                    src={urlFor(post.author.image).url()}
+                  />
                 </div>
+                <img
+                  className="h-60 w-fit object-cover transition-transform duration-200 ease-in-out"
+                  src={urlFor(post.mainImage).width(200).quality(100).url()}
+                />
+              </div>
             </Link>
-          );
+          )
         })}
       </div>
+      <div>
+        <Channels />
+      </div>
+      {/* Community posts */}
+      <div></div>
     </div>
-  );
+  )
 }
 
 export const getServerSideProps = async () => {
@@ -70,14 +76,13 @@ export const getServerSideProps = async () => {
     description,
     mainImage,
     slug
-  }`;
+  }`
 
-  const posts = await sanityClient.fetch(query);
+  const posts = await sanityClient.fetch(query)
 
   return {
     props: {
       posts,
     },
-  };
-};
-
+  }
+}

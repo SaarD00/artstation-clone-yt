@@ -1,24 +1,62 @@
-import Link from "next/link"
+import React from 'react'
+import { HiOutlinePaperAirplane, HiSearch } from 'react-icons/hi'
+import { BsUpload, BsBell, BsHeart, BsCart3 } from 'react-icons/bs'
+import Link from 'next/link'
 
-function Header() {
+export default function Header() {
   return (
-    <header className="flex justify-between p-5 max-w-7xl mx-auto">
-        <div className="flex items-center space-x-5">
-            <Link href="/">
-                <img className="w-44 object-contain cursor-pointer" src="https://links.papareact.com/yvf" />
-            </Link>
-            <div className="hidden md:inline-flex items-center space-x-5">
-                <h3>About</h3>
-                <h3>Contact</h3>
-                <h3 className="text-white bg-green-600 px-4 py-1 rounded-full">Follow</h3>
-            </div>
+    <div className="fixed z-50 flex h-[72px] w-screen border-b border-white/20 bg-[#171717]">
+      <header className="flex">
+        {/*Logo  */}
+        <div className="">
+          <Link href="/">
+            <img
+              className="h-[70px] cursor-pointer"
+              src="https://www.artstation.com/assets/about/logo/logo-artstation-horizontal-cbbe936e68623842ca878651bfd9ceb3.png"
+            />
+          </Link>
         </div>
-        <div className="flex items-center space-x-5 text-green-600">
-            <h3>Sign In</h3>
-            <h3 className="border px-4 py-1 rounded-full border-green-600">Get Started</h3>
+        {/* Input */}
+        <div className="mx-3 my-5 flex ">
+          <HiSearch className="absolute mx-3 my-2 text-gray-500 " />
+          <input
+            className="mx-1 flex  w-[1050px] flex-grow rounded-sm border border-white/20 bg-[#0B0B0B] py-[3px]  px-2 pl-8 text-xs text-white placeholder-gray-500 outline-none focus:border-none focus:outline focus:outline-cyan-500/50"
+            placeholder="search"
+          />
         </div>
-    </header>
+        {/* Icons */}
+        <div className="my-6 mx-2 flex space-x-6">
+          {/* Upload Icon */}
+          <div className="flex cursor-pointer gap-3">
+            <BsUpload className="font-bold text-white duration-150 ease-out hover:text-blue-400" />
+            <h1 className=" text-xs font-semibold text-white">UPLOAD</h1>
+          </div>
+          {/* Notification */}
+          <div className="flex cursor-pointer gap-3">
+            <BsBell className="font-bold text-white duration-150 hover:text-blue-400" />
+          </div>
+          {/* Send */}
+          <div className="flex rotate-[30deg] cursor-pointer gap-3">
+            <HiOutlinePaperAirplane className="font-bold text-white duration-150 hover:text-blue-400" />
+          </div>
+          {/* Heart */}
+          <div className="flex cursor-pointer gap-3">
+            <BsHeart className="text-white duration-150 hover:text-blue-400" />
+          </div>
+          {/* Cart */}
+          <div className="flex cursor-pointer gap-3">
+            <BsCart3 className="text-white duration-150 hover:text-blue-400" />
+          </div>
+        </div>
+        {/* Profile */}
+        <div>
+          <img
+            className="my-4 mx-3 h-8 rounded-full"
+            src="https://yt3.ggpht.com/vWhrLST40Di1kGkW-HJr7wxU5kdYIfTCcTIR8wCMlfJaFLHKo0u2FbzrvIiktVM0-afCVxFFow=s88-c-k-c0x00ffffff-no-rj-mo"
+          />
+        </div>
+        <div>{/* Options */}</div>
+      </header>
+    </div>
   )
 }
-
-export default Header
