@@ -2,8 +2,13 @@ import React from 'react'
 import { HiOutlinePaperAirplane, HiSearch } from 'react-icons/hi'
 import { BsUpload, BsBell, BsHeart, BsCart3 } from 'react-icons/bs'
 import Link from 'next/link'
+import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react'
 
 export default function Header() {
+  // Auth
+  const connectWithMetamask = useMetamask()
+  const address = useAddress()
+  const disconnect = useDisconnect()
   return (
     <div className="fixed z-50 flex h-[72px] w-screen border-b border-white/20 bg-[#171717]">
       <header className="flex">
@@ -51,8 +56,13 @@ export default function Header() {
         {/* Profile */}
         <div>
           <img
-            className="my-4 mx-3 h-8 rounded-full"
-            src="https://yt3.ggpht.com/vWhrLST40Di1kGkW-HJr7wxU5kdYIfTCcTIR8wCMlfJaFLHKo0u2FbzrvIiktVM0-afCVxFFow=s88-c-k-c0x00ffffff-no-rj-mo"
+            onClick={() => connectWithMetamask()}
+            className="my-4 mx-3 h-8 cursor-pointer rounded-full"
+            src={
+              address
+                ? 'https://yt3.ggpht.com/vWhrLST40Di1kGkW-HJr7wxU5kdYIfTCcTIR8wCMlfJaFLHKo0u2FbzrvIiktVM0-afCVxFFow=s88-c-k-c0x00ffffff-no-rj-mo'
+                : 'https://www.gravatar.com/avatar/4eaa8aea3ab7c58082edc5eda9265900.jpg?size=240&d=https%3A%2F%2Fwww.artstation.com%2Fassets%2Fdefault_avatar.jpg'
+            }
           />
         </div>
         <div>{/* Options */}</div>
