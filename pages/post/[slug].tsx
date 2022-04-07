@@ -51,10 +51,10 @@ const Post = ({ post }: Props) => {
       <div className="grid min-h-screen grid-cols-7 overflow-hidden bg-black">
         <Header />
         {/* Main body */}
-        <div className="col-span-4">
+        <div className="col-span-4  mb-[700px] scale-150">
           <img
-            className="h-full w-full scale-150 object-contain py-16 px-10"
-            src={urlFor(post.mainImage).fit('crop').url()!}
+            className=" m mx-9 h-full w-full   object-contain  px-10"
+            src={urlFor(post.mainImage).url()!}
           />
         </div>
         <hr className="my-5 mx-auto max-w-lg border border-yellow-500" />
@@ -83,6 +83,29 @@ const Post = ({ post }: Props) => {
                   </span>{' '}
                   - Published at {new Date(post._createdAt).toLocaleString()}
                 </p>
+              </div>
+              <div className="mx-5 mt-2 text-gray-300">
+                <PortableText
+                  dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+                  projectId={process.env.NEXT_PUBLIC_SANITY_PROJECTID}
+                  content={post.body}
+                  serializers={{
+                    h1: (props: any) => (
+                      <h1 className="my-5 text-2xl font-bold" {...props}></h1>
+                    ),
+                    h2: (props: any) => (
+                      <h1 className="my-5 text-xl font-bold" {...props}></h1>
+                    ),
+                    li: ({ children }: any) => (
+                      <li className="ml-4 list-disc">{children}</li>
+                    ),
+                    link: ({ children, href }: any) => (
+                      <a href={href} className="text-blue-500 hover:underline">
+                        {children}
+                      </a>
+                    ),
+                  }}
+                />
               </div>
             </article>
           </div>
