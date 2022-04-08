@@ -60,8 +60,8 @@ const Post = ({ post }: Props) => {
         <hr className="my-5 mx-auto max-w-lg border border-yellow-500" />
 
         {/* Comments */}
-        <div className="col-span-2 flex flex-col bg-[#171717]">
-          <div>
+        <div className=" col-span-2 flex flex-col bg-[#171717]">
+          <div className="">
             <article className="my-20">
               <h1 className=" my-10 text-center text-3xl text-white">
                 {post.title}

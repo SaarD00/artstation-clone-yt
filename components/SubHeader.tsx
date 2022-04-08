@@ -4,10 +4,22 @@ import {
   BsFillJournalBookmarkFill,
   BsNewspaper,
 } from 'react-icons/bs'
+import { VscSignIn } from 'react-icons/vsc'
+import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react'
 
 export default function Header() {
+  const connectWithMetamask = useMetamask()
+  const address = useAddress()
+  const disconnect = useDisconnect()
   return (
     <div className="  flex  border-b border-white/20 bg-[#101010] ">
+      <h1
+        className="mx-5 mt-3 mb-2 flex rounded-sm bg-sky-400 px-3 py-1  text-sm text-white"
+        onClick={() => (address ? disconnect() : connectWithMetamask())}
+      >
+        <VscSignIn className=" mr-2 text-base" />
+        {address ? 'LOGOUT' : 'LOGIN'}
+      </h1>
       {/* Container */}
       <div className="mx-[35%] my-2 flex gap-20">
         {/* Studio */}

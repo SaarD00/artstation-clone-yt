@@ -54,9 +54,12 @@ export default function Header() {
           </div>
         </div>
         {/* Profile */}
-        <div>
+        <div className="group">
+          <p className=" absolute -mx-10 my-14 w-36 rounded-full bg-gray-800/50 p-2 px-5 text-white/50 opacity-0 duration-300  group-hover:opacity-100 ">
+            {address ? 'Welcome!' : 'Connect with Metamask'}
+          </p>
           <img
-            onClick={() => connectWithMetamask()}
+            onClick={() => (address ? disconnect() : connectWithMetamask())}
             className="my-4 mx-3 h-8 cursor-pointer rounded-full"
             src={
               address
