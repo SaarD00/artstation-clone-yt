@@ -138,9 +138,12 @@ const Post = ({ post }: Props) => {
             })}
           </div>
           {submitted ? (
-            <div className=" my-10  mx-auto flex max-w-2xl flex-col bg-[#171717]  p-10 text-white">
-              <h3>Thankyou for submitting your comment</h3>
-              <p>Once it has been approved, it will appear below! </p>
+            <div className=" my-10  mx-auto flex max-w-2xl flex-col bg-[#282626]  p-10 text-white">
+              <h3>Thank you for submitting your comment</h3>
+              <p>
+                Once it has been approved, it will appear below! Takes Around
+                5hrs to 10hrs{' '}
+              </p>
             </div>
           ) : (
             <form

@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <div className="  flex  border-b border-white/20 bg-[#101010] ">
       <h1
-        className="mx-5 mt-3 mb-2 flex rounded-sm bg-sky-400 px-3 py-1  text-sm text-white"
+        className="mx-5 mt-3 mb-2 flex cursor-pointer rounded-sm bg-sky-400 px-3 py-1  text-sm text-white"
         onClick={() => (address ? disconnect() : connectWithMetamask())}
       >
         <VscSignIn className=" mr-2 text-base" />
