@@ -48,10 +48,10 @@ const Post = ({ post }: Props) => {
         <title>{post.title}</title>
         <link rel="icon" href="/images/logo/medium-1.svg" />
       </Head>
-      <div className="grid min-h-screen grid-cols-7 overflow-hidden bg-black">
+      <div className="grid min-h-screen grid-cols-1 overflow-hidden bg-black md:grid-cols-7">
         <Header />
         {/* Main body */}
-        <div className="col-span-4  mb-[700px] scale-150">
+        <div className="mt-24 mr-20 scale-125 lg:col-span-4  lg:mb-[700px] lg:scale-150">
           <img
             className=" m mx-9 h-full w-full   object-contain  px-10"
             src={urlFor(post.mainImage).url()!}
@@ -60,7 +60,7 @@ const Post = ({ post }: Props) => {
         <hr className="my-5 mx-auto max-w-lg border border-yellow-500" />
 
         {/* Comments */}
-        <div className=" col-span-2 flex flex-col bg-[#171717]">
+        <div className=" col-span-2 flex flex-col bg-[#171717] md:col-span-2">
           <div className="">
             <article className="my-20">
               <h1 className=" my-10 text-center text-3xl text-white">

@@ -7,8 +7,8 @@ function Channels() {
       {/* CHANLLES */}
       <div className="mx-5 my-16 flex justify-between">
         {/* CHANNELS TAB */}
-        <div className="flex h-16 w-28 items-center justify-center rounded-sm bg-[#333333] px-1 py-3">
-          <h3 className="text-center text-sm font-semibold text-white">
+        <div className=" hidden h-16 w-28 items-center justify-center rounded-sm bg-[#333333] px-1 py-3 lg:flex ">
+          <h3 className=" text-center text-sm font-semibold text-white">
             Channels
           </h3>
           <BsArrowDown className="ml-3 text-sky-500" />

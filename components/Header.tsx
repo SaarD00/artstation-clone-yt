@@ -41,15 +41,15 @@ export default function Header() {
             <BsBell className="font-bold text-white duration-150 hover:text-blue-400" />
           </div>
           {/* Send */}
-          <div className="flex rotate-[30deg] cursor-pointer gap-3">
+          <div className=" hidden rotate-[30deg] cursor-pointer gap-3 lg:flex">
             <HiOutlinePaperAirplane className="font-bold text-white duration-150 hover:text-blue-400" />
           </div>
           {/* Heart */}
-          <div className="flex cursor-pointer gap-3">
+          <div className="hidden cursor-pointer gap-3 lg:flex">
             <BsHeart className="text-white duration-150 hover:text-blue-400" />
           </div>
           {/* Cart */}
-          <div className="flex cursor-pointer gap-3">
+          <div className="hidden cursor-pointer gap-3 lg:flex">
             <BsCart3 className="text-white duration-150 hover:text-blue-400" />
           </div>
         </div>

@@ -8,11 +8,14 @@ import { Post } from '../typings'
 import imageUrlBuilder from '@sanity/image-url'
 import SubHeader from '../components/SubHeader'
 import Channels from '../components/Channels'
+import { useSession } from 'next-auth/react'
+import { signIn, signOut } from 'next-auth/react'
 interface Props {
   posts: [Post]
 }
 
 export default function Home({ posts }: Props) {
+  const { data: session } = useSession()
   const imageUrlbuilder = imageUrlBuilder(sanityClient)
   return (
     <div className=" overflow-hidden bg-[#171717]">

@@ -23,14 +23,14 @@ export default function Header() {
       {/* Container */}
       <div className="mx-[35%] my-2 flex gap-20">
         {/* Studio */}
-        <div className="flex cursor-pointer gap-2 rounded-full p-2 duration-500 hover:bg-white/10">
-          <BsBook className="rotate-3  text-white/50 hover:text-blue-400 " />
-          <h1 className="text-xs  text-white">STUDIOS</h1>
+        <div className=" flex cursor-pointer gap-2 rounded-full p-2 duration-500 hover:bg-white/10">
+          <BsBook className="hidden rotate-3 text-white/50  hover:text-blue-400 lg:inline-flex " />
+          <h1 className="hidden text-xs text-white  lg:inline-flex">STUDIOS</h1>
         </div>
         {/* Blogs */}
         <div className="flex cursor-pointer gap-2 rounded-full p-2 duration-500 hover:bg-white/10">
           <BsFillJournalBookmarkFill className="  text-white/50 hover:text-blue-400" />
-          <h1 className="text-xs  text-white">BLOGS</h1>
+          <h1 className="text-xs   text-white">BLOGS</h1>
         </div>
         {/* Magazine */}
         <div className="flex cursor-pointer gap-2 rounded-full p-2 duration-500 hover:bg-white/10">
