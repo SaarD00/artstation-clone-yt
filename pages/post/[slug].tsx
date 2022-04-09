@@ -51,7 +51,7 @@ const Post = ({ post }: Props) => {
       <div className="grid min-h-screen grid-cols-1 overflow-hidden bg-black md:grid-cols-7">
         <Header />
         {/* Main body */}
-        <div className="mt-24 mr-20 scale-125 lg:col-span-4  lg:mb-[700px] lg:scale-150">
+        <div className="mt-24 mr-20 scale-125 lg:col-span-4 lg:mt-0 lg:mr-0   lg:mb-[700px] lg:scale-150">
           <img
             className=" m mx-9 h-full w-full   object-contain  px-10"
             src={urlFor(post.mainImage).url()!}

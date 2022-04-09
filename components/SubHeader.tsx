@@ -6,19 +6,22 @@ import {
 } from 'react-icons/bs'
 import { VscSignIn } from 'react-icons/vsc'
 import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react'
+import { signOut, useSession } from 'next-auth/react'
+import { signIn } from 'next-auth/react'
 
 export default function Header() {
   const connectWithMetamask = useMetamask()
   const address = useAddress()
   const disconnect = useDisconnect()
+  const { data: session } = useSession()
   return (
     <div className="  flex  border-b border-white/20 bg-[#101010] ">
       <h1
         className="mx-5 mt-3 mb-2 flex cursor-pointer rounded-sm bg-sky-400 px-3 py-1  text-sm text-white"
-        onClick={() => (address ? disconnect() : connectWithMetamask())}
+        onClick={() => (session ? signOut() : signIn())}
       >
         <VscSignIn className=" mr-2 text-base" />
-        {address ? 'LOGOUT' : 'LOGIN'}
+        {session ? 'LOGOUT' : 'LOGIN'}
       </h1>
       {/* Container */}
       <div className="mx-[35%] my-2 flex gap-20">
