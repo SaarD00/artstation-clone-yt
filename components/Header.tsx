@@ -27,6 +27,8 @@ export default function Header() {
         <div className="mx-3 my-5 flex ">
           <HiSearch className="absolute mx-3 my-2 text-gray-500 " />
           <input
+            type="search"
+            id="search"
             className="mx-1 flex  w-[1050px] flex-grow rounded-sm border border-white/20 bg-[#0B0B0B] py-[3px]  px-2 pl-8 text-xs text-white placeholder-gray-500 outline-none focus:border-none focus:outline focus:outline-cyan-500/50"
             placeholder="search"
           />
@@ -61,7 +63,7 @@ export default function Header() {
             {session ? 'Welcome!' : 'Connect with Twitter'}
           </p>
           <img
-            onClick={() => (session ? signOut() : signIn())}
+            onClick={() => (session ? '' : signIn())}
             className="my-4 mx-3 h-8 cursor-pointer rounded-full"
             src={
               session
