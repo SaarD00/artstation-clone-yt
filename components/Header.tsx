@@ -7,9 +7,6 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 
 export default function Header() {
   // Auth
-  const connectWithMetamask = useMetamask()
-  const address = useAddress()
-  const disconnect = useDisconnect()
   const { data: session } = useSession()
   return (
     <div className="fixed z-50 flex h-[72px] w-screen border-b border-white/20 bg-[#171717]">
@@ -36,8 +33,8 @@ export default function Header() {
         {/* Icons */}
         <div className="my-6 mx-2 flex space-x-6">
           {/* Upload Icon */}
-          <div className="flex cursor-pointer gap-3">
-            <BsUpload className="font-bold text-white duration-150 ease-out hover:text-blue-400" />
+          <div className="group flex cursor-pointer gap-3">
+            <BsUpload className="font-bold text-white duration-150 ease-out hover:text-blue-400 group-hover:text-blue-400" />
             <h1 className=" text-xs font-semibold text-white">UPLOAD</h1>
           </div>
           {/* Notification */}

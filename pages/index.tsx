@@ -45,10 +45,15 @@ export default function Home({ posts }: Props) {
                       </span>
                     </p>
                   </div>
-                  <img
-                    className="h-12 w-12 rounded-full object-contain"
-                    src={urlFor(post.author.image).url()}
-                  />
+                  <Link
+                    key={post.author.name}
+                    href={`/post/${post.slug.current}`}
+                  >
+                    <img
+                      className="h-12 w-12 rounded-full object-contain"
+                      src={urlFor(post.author.image).url()}
+                    />
+                  </Link>
                 </div>
                 <img
                   className="h-60 w-fit object-cover transition-transform duration-200 ease-in-out"

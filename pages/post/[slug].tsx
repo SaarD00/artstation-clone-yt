@@ -46,7 +46,7 @@ const Post = ({ post }: Props) => {
     <div className="min-h-screen bg-[#171717] ">
       <Head>
         <title>{post.title}</title>
-        <link rel="icon" href="/images/logo/medium-1.svg" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="grid min-h-screen grid-cols-1 overflow-hidden bg-black md:grid-cols-7">
         <Header />

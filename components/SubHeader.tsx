@@ -5,14 +5,10 @@ import {
   BsNewspaper,
 } from 'react-icons/bs'
 import { VscSignIn } from 'react-icons/vsc'
-import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react'
 import { signOut, useSession } from 'next-auth/react'
 import { signIn } from 'next-auth/react'
 
 export default function Header() {
-  const connectWithMetamask = useMetamask()
-  const address = useAddress()
-  const disconnect = useDisconnect()
   const { data: session } = useSession()
   return (
     <div className="  flex  border-b border-white/20 bg-[#101010] ">
@@ -26,18 +22,18 @@ export default function Header() {
       {/* Container */}
       <div className="mx-[35%] my-2 flex gap-20">
         {/* Studio */}
-        <div className=" flex cursor-pointer gap-2 rounded-full p-2 duration-500 hover:bg-white/10">
-          <BsBook className="hidden rotate-3 text-white/50  hover:text-blue-400 lg:inline-flex " />
+        <div className=" group flex cursor-pointer gap-2 rounded-full p-2 duration-500 hover:bg-white/10">
+          <BsBook className="hidden rotate-3 text-white/50  group-hover:text-blue-400 lg:inline-flex " />
           <h1 className="hidden text-xs text-white  lg:inline-flex">STUDIOS</h1>
         </div>
         {/* Blogs */}
-        <div className="flex cursor-pointer gap-2 rounded-full p-2 duration-500 hover:bg-white/10">
-          <BsFillJournalBookmarkFill className="  text-white/50 hover:text-blue-400" />
+        <div className="group flex cursor-pointer gap-2 rounded-full p-2 duration-500 hover:bg-white/10">
+          <BsFillJournalBookmarkFill className="  text-white/50 group-hover:text-blue-400" />
           <h1 className="text-xs   text-white">BLOGS</h1>
         </div>
         {/* Magazine */}
-        <div className="flex cursor-pointer gap-2 rounded-full p-2 duration-500 hover:bg-white/10">
-          <BsNewspaper className=" text-white/50 hover:text-blue-400 " />
+        <div className="group flex cursor-pointer gap-2 rounded-full p-2 duration-500 hover:bg-white/10">
+          <BsNewspaper className=" group- text-white/50 hover:text-blue-400 " />
           <h1 className="text-xs  text-white">MAGAZINE</h1>
         </div>
         {/* Premium */}
