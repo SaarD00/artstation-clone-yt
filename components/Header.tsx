@@ -26,7 +26,7 @@ export default function Header() {
           <input
             type="search"
             id="search"
-            className="mx-1 flex  w-[200px] flex-grow rounded-sm border border-white/20 bg-[#0B0B0B] py-[3px] px-2 pl-8 text-xs  text-white placeholder-gray-500 outline-none focus:border-none focus:outline focus:outline-cyan-500/50 md:w-[490px] lg:w-[1500px]"
+            className="mx-1 flex  w-[200px] flex-grow rounded-sm border border-white/20 bg-[#0B0B0B] py-[3px] px-2 pl-8 text-xs  text-white placeholder-gray-500 outline-none focus:border-none focus:outline focus:outline-cyan-500/50 md:w-[490px]  lg:w-[1050px]"
             placeholder="search"
           />
         </div>
