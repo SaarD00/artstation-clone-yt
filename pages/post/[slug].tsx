@@ -10,7 +10,6 @@ import Header from '../../components/Header'
 interface IFormInput {
   _id: string
   name: string
-  email: string
   comment: string
 }
 
@@ -169,14 +168,7 @@ const Post = ({ post }: Props) => {
                   type="text"
                 />
               </label>
-              <label className="mb-5 block">
-                <input
-                  {...register('email', { required: true })}
-                  className="form-input mt-1 block w-full rounded bg-[#0f0f0f]  py-2 px-3 text-gray-300 placeholder-slate-600 shadow outline-none ring-yellow-500 focus:ring"
-                  placeholder="email@domain.com"
-                  type="email"
-                />
-              </label>
+
               <label className="mb-5 block">
                 <textarea
                   {...register('comment', { required: true })}
@@ -194,11 +186,6 @@ const Post = ({ post }: Props) => {
                 {errors.comment && (
                   <span className="text-red-500">
                     - The Comment Field is required
-                  </span>
-                )}
-                {errors.email && (
-                  <span className="text-red-500">
-                    - The Email Field is required
                   </span>
                 )}
               </div>

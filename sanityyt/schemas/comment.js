@@ -9,10 +9,6 @@ export default {
     },
 
     {
-      name: 'email',
-      type: 'string',
-    },
-    {
       name: 'comment',
       type: 'text',
     },

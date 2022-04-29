@@ -21,7 +21,6 @@ export interface Post {
 
 export interface Comment {
   comment: string;
-  email: string;
   name: string;
   post: {
     _ref: string;
